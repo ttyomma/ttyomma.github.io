@@ -1,0 +1,106 @@
+body {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 50px;
+
+    background: radial-gradient(300px at var(--x) var(--y), rgba(253, 253, 253, 0.15), transparent 90%);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+    @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+    .fade-in-up-1 { animation: fadeInUp 0.5s ease-out 0.2s forwards; opacity: 0; }
+    .fade-in-up-2 { animation: fadeInUp 0.5s ease-out 0.4s forwards; opacity: 0; }
+    .fade-in-up-3 { animation: fadeInUp 0.5s ease-out 0.6s forwards; opacity: 0; }
+    .fade-in-up-4 { animation: fadeInUp 0.5s ease-out 0.8s forwards; opacity: 0; }
+
+.grainy {
+    position: relative;
+}
+.grainy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tilt-card {
+    transition: transform 0.1s cubic-bezier(.25,.46,.45,.94);
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.tilt-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(140deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    pointer-events: none;
+    border-radius: inherit;
+    }
+    .tilt-card:hover .tilt-shine {
+    opacity: var(--shine-opacity, 0);
+        }
+
+.animated-done {
+    animation: none !important;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
+.text-gradient {
+    background: -webkit-linear-gradient(white, #9CA3AF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
