@@ -5,7 +5,7 @@
  ▐█.▪▐█▌▐█▪ ▄█▀▄ ▐█ ▌▐▌▐█·▄█▀▀█ 
  ▐█▌· ▐█▀·.▐█▌.▐▌██ ██▌▐█▌▐█ ▪▐▌
  ▀▀▀   ▀ •  ▀█▄▀▪▀▀  █▪▀▀▀ ▀  ▀                                                                                                                            
-✦ Why do you need to view the site code? ✦
+✦ prod by gemini, chat gpt and my hand ✦
 -->
 <html lang="en">
 
@@ -15,6 +15,11 @@
     <link rel="icon" href="siteicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>tyoma portfolio</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..1200,200..1000;1,6..1200,200..1000&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/cursor-animation.js"></script>
     <script>
@@ -26,6 +31,9 @@
                 'dark-card': '#161b22',
                 'dark-border': '#30363d',
                 'dark-text': '#c9d1d9',
+                fontFamily: {
+                    sans: ['"Nunito Sans"', 'sans-serif'],
+                },
             }
         }
         }
@@ -33,7 +41,7 @@
     </script>
 </head>
 
-<body class="bg-dark-bg text-dark-text">
+<body class="bg-dark-bg text-dark-text font-sans">
 
 <nav class="fixed top-0 left-0 w-full flex justify-center space-x-8 p-4 z-50">
     <a href="index.html" class="transition-colors duration-300 hover:text-white">Home</a>
@@ -42,8 +50,9 @@
 </nav>
 
 <div class="flex flex-col items-center justify-center min-h-screen">
-    <img class="w-40 h-40 rounded-full fade-in-up-1" src="avatar.jpg" alt="avatar">
-    <h1 class="mt-5 text-4xl text-white font-bold fade-in-up-2 text-gradient">tyoma</h1>
+        <div class="w-40 h-40 rounded-full flex items-center justify-center">
+            <img class="w-full h-full object-cover rounded-full" src="avatar.jpg" alt="avatar"> </div>
+    <h1 id="distort-text" class="mt-5 text-4xl text-white font-bold fade-in-up-2 text-gradient">tyoma</h1>
     <div class="mt-5 flex space-x-4 fade-in-up-3">
         <!-- tg -->
         <a href="https://t.me/InOpiumWeTrust" target="_blank" aria-label="Telegram" 

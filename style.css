@@ -4,7 +4,6 @@ body {
     font-family: sans-serif;
     text-align: center;
     padding-top: 50px;
-
     background: radial-gradient(300px at var(--x) var(--y), rgba(253, 253, 253, 0.15), transparent 90%);
 }
 
@@ -12,6 +11,12 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
+}
+
+h1 {
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 8px;
 }
 
     @keyframes fadeInUp {
