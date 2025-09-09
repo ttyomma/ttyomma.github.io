@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<!--                                                        
-▄▄▄▄▄ ▄· ▄▌      • ▌ ▄ ·.  ▄▄▄· 
-•██  ▐█▪██▌▪     ·██ ▐███▪▐█ ▀█ 
- ▐█.▪▐█▌▐█▪ ▄█▀▄ ▐█ ▌▐▌▐█·▄█▀▀█ 
- ▐█▌· ▐█▀·.▐█▌.▐▌██ ██▌▐█▌▐█ ▪▐▌
- ▀▀▀   ▀ •  ▀█▄▀▪▀▀  █▪▀▀▀ ▀  ▀                                                                                                                             
+<!--                                                                                                                                                                                 
 ✦ prod by gemini, chat gpt and my hand ✦
+ ⠀⠀⠀⠀⣀⣀⣤⣤⣦⣶⢶⣶⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⡄⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⣿⣿⣿⠿⣿⣿⣾⣿⣿⣿⣿⣿⣿⠟⠛⠛⢿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⣿⡟⠡⠂⠀⢹⣿⣿⣿⣿⣿⣿⡇⠘⠁⠀⠀⣿⡇⠀⢠⣄⠀⠀⠀⠀
+ ⠀⠀⠀⠀⢸⣗⢴⣶⣷⣷⣿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣴⣿⣗⣄⣼⣷⣶⡄⠀⠀
+ ⠀⠀⠀⢀⣾⣿⡅⠐⣶⣦⣶⠀⢰⣶⣴⣦⣦⣶⠴⠀⢠⣿⣿⣿⣿⣼⣿⡇⠀⠀
+ ⠀⠀⢀⣾⣿⣿⣷⣬⡛⠷⣿⣿⣿⣿⣿⣿⣿⠿⠿⣠⣿⣿⣿⣿⣿⠿⠛⠃⠀⠀
+ ⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣶⣦⣭⣭⣥⣭⣵⣶⣿⣿⣿⣿⣟⠉⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠙⠇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣛⠛⠛⠛⠛⠛⢛⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⠀⠿⣿⣿⣿⠿⠿⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⠿⠇⠀⠀⠀
 -->
 <html lang="en">
 
@@ -14,9 +19,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="siteicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>tyoma portfolio</title>
+    <title>tyoma Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..1200,200..1000;1,6..1200,200..1000&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/cursor-animation.js"></script>
+    <script src="js/tilt-effect.js"></script>
+    <!-- <script src="js/cursor-animation.js"></script> -->
+    <script src="js/card-animation.js"></script>
+    <script src="js/animation-cleanup.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -29,12 +40,10 @@
             }
           }
         }
-      }
-    </script>
-    
+      } </script>
 </head>
 
-<body class="bg-dark-bg text-dark-text">
+<body class="bg-dark-bg text-dark-text font-sans">
 
 <nav class="fixed top-0 left-0 w-full flex justify-center space-x-8 p-4 z-50">
     <a href="index.html" class="transition-colors duration-300 hover:text-white">Home</a>
@@ -42,8 +51,59 @@
     <a href="resume.html" class="transition-colors duration-300 hover:text-white"> About </a>
 </nav>
 
-</br><br><br><br>
-While there are no projects underway, you may want to take a look at my <a href="https://github.com/ttyomma" class="text-gradient"> GitHub</a>
+<div id="card-viewer-container" class="fixed inset-0 z-40 pointer-events-none">
+  <div id="card-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-500"></div>
+  <div id="active-card-placeholder" class="fixed rounded-lg z-50 transition-all duration-500 ease-in-out"> </div>
+  <div id="side-panel" class="fixed grainy bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 w-96 text-white flex flex-col transition-all duration-500 ease-in-out opacity-0">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold">Info</h2>
+      <button id="close-btn" class="text-3xl leading-none">&times;</button>
+    </div>
+    <p id="side-panel-text" class="overflow-y-auto"></p>
+  </div>
+</div>
+
+<main class="w-full max-w-5xl mx-auto px-4 py-24">
+  <div id="projects-group" class="group pointer-events-none">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
+      <!-- 1 -->
+      <div class="flex flex-col items-center group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto">
+        <div class="transition-transform duration-300 ease-in-out hover:scale-110">
+          <div class="project-card tilt-card grainy bg-white/10 backdrop-blur-md border border-white/20 rounded-lg w-64 h-80 flex items-center justify-center shadow-lg fade-in-up-1 cursor-pointer"
+                data-text="There are no projects to add here, so for now it remains as it is" data-image-src="images/wait.png">
+            <span class="text-xl font-bold text-white">Coming Soon</span>
+            <div class="tilt-shine"></div>
+          </div>
+        </div>
+        <p class="mt-4 text-gray-400 fade-in-up-2">...</p>
+      </div>
+      <!-- 2 -->
+      <div class="flex flex-col items-center group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto">
+        <div class="transition-transform duration-300 ease-in-out hover:scale-110">
+          <div class="project-card tilt-card grainy bg-white/10 backdrop-blur-md border border-white/20 rounded-lg w-64 h-80 flex items-center justify-center shadow-lg fade-in-up-2 cursor-pointer"
+                data-text="There are no projects to add here, so for now it remains as it is" data-image-src="images/wait.png">
+            <span class="text-xl font-bold text-white">Coming Soon</span>
+            <div class="tilt-shine"></div>
+          </div>
+        </div>
+        <p class="mt-4 text-gray-400 fade-in-up-3">...</p>
+      </div>
+      <!-- 3 -->
+      <div class="flex flex-col items-center group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto">
+        <div class="transition-transform duration-300 ease-in-out hover:scale-110">
+          <div class="project-card tilt-card grainy bg-white/10 backdrop-blur-md border border-white/20 rounded-lg w-64 h-80 flex items-center justify-center shadow-lg fade-in-up-3 cursor-pointer"
+                data-text="There are no projects to add here, so for now it remains as it is">
+            <span class="text-xl font-bold text-white">Coming Soon</span>
+            <div class="tilt-shine"></div>
+          </div>
+        </div>
+        <p class="mt-4 text-gray-400 fade-in-up-4">...</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+More university project work can be found on my <a href="https://github.com/ttyomma" class="text-gradient"> GitHub</a>
 
 </body>
 </html>

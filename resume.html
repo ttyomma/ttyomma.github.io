@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<!--                                                        
-▄▄▄▄▄ ▄· ▄▌      • ▌ ▄ ·.  ▄▄▄· 
-•██  ▐█▪██▌▪     ·██ ▐███▪▐█ ▀█ 
- ▐█.▪▐█▌▐█▪ ▄█▀▄ ▐█ ▌▐▌▐█·▄█▀▀█ 
- ▐█▌· ▐█▀·.▐█▌.▐▌██ ██▌▐█▌▐█ ▪▐▌
- ▀▀▀   ▀ •  ▀█▄▀▪▀▀  █▪▀▀▀ ▀  ▀                                                                                                                            
+<!--                                                                                                                                                                                 
 ✦ prod by gemini, chat gpt and my hand ✦
+ ⠀⠀⠀⠀⣀⣀⣤⣤⣦⣶⢶⣶⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⡄⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⣿⣿⣿⠿⣿⣿⣾⣿⣿⣿⣿⣿⣿⠟⠛⠛⢿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⣿⡟⠡⠂⠀⢹⣿⣿⣿⣿⣿⣿⡇⠘⠁⠀⠀⣿⡇⠀⢠⣄⠀⠀⠀⠀
+ ⠀⠀⠀⠀⢸⣗⢴⣶⣷⣷⣿⣿⣿⣿⣿⣿⣷⣤⣤⣤⣴⣿⣗⣄⣼⣷⣶⡄⠀⠀
+ ⠀⠀⠀⢀⣾⣿⡅⠐⣶⣦⣶⠀⢰⣶⣴⣦⣦⣶⠴⠀⢠⣿⣿⣿⣿⣼⣿⡇⠀⠀
+ ⠀⠀⢀⣾⣿⣿⣷⣬⡛⠷⣿⣿⣿⣿⣿⣿⣿⠿⠿⣠⣿⣿⣿⣿⣿⠿⠛⠃⠀⠀
+ ⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣶⣦⣭⣭⣥⣭⣵⣶⣿⣿⣿⣿⣟⠉⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠙⠇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣛⠛⠛⠛⠛⠛⢛⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀⠀⠀⠿⣿⣿⣿⠿⠿⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⠿⠇⠀⠀⠀
 -->
 <html lang="en">
 
@@ -14,11 +19,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="siteicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>tyoma portfolio</title>
+    <title>tyoma Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..1200,200..1000;1,6..1200,200..1000&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/tilt-effect.js"></script>
     <script src="js/resume-animations.js"></script>
-    <script src="js/cursor-animation.js"></script>
+    <!-- <script src="js/cursor-animation.js"></script> -->
     <script>
       tailwind.config = {
         theme: {
@@ -35,7 +43,7 @@
     </script>
 </head>
 
-<body class="bg-dark-bg text-dark-text">
+<body class="bg-dark-bg text-dark-text font-sans">
 
 <nav class="fixed top-0 left-0 w-full flex justify-center space-x-8 p-4 z-50">
     <a href="index.html" class="transition-colors duration-300 hover:text-white">Home</a>
@@ -44,45 +52,61 @@
 </nav>
 
 <main class="container mx-auto px-4 py-24">
-  <div class="group">
+  <div class="group pointer-events-none">
+    
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- left -->
-      <div class="tilt-card overflow-hidden grainy bg-gradient-to-tr from-teal-950 to-dark-bg p-6 rounded-lg border border-dark-border group-hover:opacity-60 hover:!opacity-100 fade-in-up-1">
-        <h2 class="text-2xl font-bold text-white mb-4">Experience</h2>
-        <div class="mb-4">
-          don't have any experience yet :(
-        </div>
-        <div class="tilt-shine"></div>
-      </div>
-      <!-- right -->
-      <div data-tilt class="tilt-card overflow-hidden grainy bg-gradient-to-tr from-teal-950 to-dark-bg p-6 rounded-lg border border-dark-border group-hover:opacity-60 hover:!opacity-100 fade-in-up-1">
-        <h2 class="text-2xl font-bold text-white mb-4">Education</h2>
-        <div class="mb-6">
-          <h3 class="text-xl font-semibold text-white">Kryvyi Rih National University</h3>
-          <p class="text-sm text-gray-400">Bachelor of Computer Engineering | 2023 - now</p>
-        </div>
-        <hr class="border-t border-dark-border my-4">
-        <div>
-          <h2 class="text-2xl font-bold text-white mb-4">Language</h2>
-          <div>
-            <h3 class="text-xl text-white">Ukrainian</h3>
-            <p class="text-sm text-gray-400">Native</p>
-            <h3 class="text-xl text-white">Russian</h3>
-            <p class="text-sm text-gray-400">Native</p>
-            <h3 class="text-xl text-white">English</h3>
-            <p class="text-sm text-gray-400">reading like B2</p>
+      <div class="group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto">
+        <div class="transition-transform duration-300 ease-in-out hover:scale-105 h-full">
+          <div class="overflow-hidden grainy bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg border border-dark-border fade-in-up-1 h-full">
+            <h2 class="text-2xl font-bold text-white mb-4">Comercial Experience</h2>
+            <div class="mb-4">
+              don't have any experience yet :(
+            </div>
+            <div class="tilt-shine"></div>
           </div>
         </div>
-        <div class="tilt-shine"></div>
+      </div>
+      
+      <!-- right -->
+      <div class="group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto">
+        <div class="transition-transform duration-300 ease-in-out hover:scale-105 h-full">
+          <div data-tilt class="overflow-hidden grainy bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg border border-dark-border fade-in-up-1 h-full">
+            <h2 class="text-2xl font-bold text-white mb-4">Education</h2>
+            <div class="mb-6">
+              <h3 class="text-xl font-semibold text-white">Kryvyi Rih National University</h3>
+              <p class="text-sm text-gray-400">Bachelor of Computer Engineering | 2023 - now</p>
+            </div>
+            <hr class="border-t border-dark-border my-4">
+            <div>
+              <h2 class="text-2xl font-bold text-white mb-4">Language</h2>
+              <div>
+                <h3 class="text-xl text-white">Ukrainian</h3>
+                <p class="text-sm text-gray-400">Native</p>
+                <h3 class="text-xl text-white">Russian</h3>
+                <p class="text-sm text-gray-400">Native</p>
+                <h3 class="text-xl text-white">English</h3>
+                <p class="text-sm text-gray-400">reading like B2</p>
+              </div>
+            </div>
+            <div class="tilt-shine"></div>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- bottom -->
-    <div class="grainy bg-gradient-to-tr from-teal-950 to-dark-bg p-6 rounded-lg border border-dark-border md:col-span-2 group-hover:opacity-60 hover:!opacity-100 mt-8 fade-in-up-2">
+    
+    <div class="group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto mt-8">
+  <div class="transition-transform duration-300 ease-in-out hover:scale-100">
+    <div class="grainy bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg border border-dark-border md:col-span-2 fade-in-up-2">
       <h2 class="text-2xl font-bold text-white mb-4">Other Info</h2>
-      <div class="flex flex-wrap gap-4">
-        <a href="#" class="inline-block px-4 py-2 rounded-lg text-white bg-slate-400/20 backdrop-blur-sm border border-white/30 transition-colors duration-300 hover:bg-slate-400/30 hover:border-white/40"> Download Resume (don't have yet) </a>
+      <div class="flex flex-wrap items-center gap-4">
+        <span class="text-white">Resume in PDF format:</span>
+        <a href="additionally/Artem Kolisnychenko Resume.pdf" class="inline-block px-4 py-2 rounded-lg text-white bg-slate-400/20 backdrop-blur-sm border border-white/30 transition-colors duration-300 hover:bg-slate-400/30 hover:border-white/40"> Download (incomplete) </a>
       </div>
     </div>
+  </div>
+</div>
+
   </div>
 </main>
 </body>
