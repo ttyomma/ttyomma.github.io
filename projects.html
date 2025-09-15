@@ -22,7 +22,6 @@
     <title>tyoma Portfolio</title>
     <script src="js/theme-loader.js"></script>
     <script src="js/tilt-effect.js"></script>
-    <!-- <script src="js/cursor-animation.js"></script> -->
     <script src="js/card-animation.js"></script>
     <script src="js/animation-cleanup.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -49,8 +48,9 @@
     </script>
 </head>
 
-<body class="dark:bg-dark-bg dark:text-dark-text bg-white text-black font-sans transition-colors duration-300">
-  <div id="p5-canvas"></div>
+<body class="dark:text-dark-text text-black font-sans overflow-hidden">
+    <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
+    <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
 
 <nav class="fixed top-0 left-0 w-full p-4 z-50">
     <div class="flex justify-center items-center gap-4 container mx-auto h-12">

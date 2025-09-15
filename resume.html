@@ -47,8 +47,9 @@
     </script>
 </head>
 
-<body class="dark:bg-dark-bg dark:text-dark-text bg-white text-black font-sans">
-  <div id="p5-canvas"></div>
+<body class="dark:text-dark-text text-black font-sans overflow-hidden">
+    <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
+    <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
 
 <nav class="fixed top-0 left-0 w-full p-4 z-50">
     <div class="flex justify-center items-center gap-4 container mx-auto h-12">
@@ -89,8 +90,8 @@
   <div class="group pointer-events-none">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       
-      <!-- Карточка 1 (left) -->
-      <div class="transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto">
+      <!-- left -->
+      <div class="transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto fade-in-up-1">
         <div class="overflow-hidden grainy p-6 rounded-lg h-full transition-all duration-300
                     text-gray-900 dark:text-white 
                     border border-black/15 dark:border-white/15
@@ -106,8 +107,8 @@
         </div>
       </div>
       
-      <!-- Карточка 2 (right) -->
-      <div class="transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto">
+      <!-- right -->
+      <div class="transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto fade-in-up-1">
         <div data-tilt class="overflow-hidden grainy p-6 rounded-lg h-full transition-all duration-300
                     text-gray-900 dark:text-white 
                     border border-black/15 dark:border-white/15
@@ -137,8 +138,8 @@
       </div>
     </div>
     
-    <!-- Карточка 3 (Other Info) -->
-    <div class="mt-8 pointer-events-auto">
+    <!-- Other Info -->
+    <div class="mt-8 pointer-events-auto fade-in-up-2">
       <div class="transition-transform duration-300 ease-in-out">
         <div class="overflow-hidden grainy p-6 rounded-lg h-full transition-all duration-300
                     text-gray-900 dark:text-white 
