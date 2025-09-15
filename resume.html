@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--                                                                                                                                                                                 
-✦ prod by gemini, chat gpt and my hand ✦
+    ✦ prod by gemini and my hand ✦
  ⠀⠀⠀⠀⣀⣀⣤⣤⣦⣶⢶⣶⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⡄⠀⠀⠀⠀⠀⠀⠀
  ⠀⠀⠀⠀⣿⣿⣿⠿⣿⣿⣾⣿⣿⣿⣿⣿⣿⠟⠛⠛⢿⣿⡇⠀⠀⠀⠀⠀⠀⠀
  ⠀⠀⠀⠀⣿⡟⠡⠂⠀⢹⣿⣿⣿⣿⣿⣿⡇⠘⠁⠀⠀⣿⡇⠀⢠⣄⠀⠀⠀⠀
@@ -20,94 +20,150 @@
     <link rel="icon" href="siteicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>tyoma Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..1200,200..1000;1,6..1200,200..1000&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="js/cursor-animation.js"></script> -->
+    <script src="js/theme-loader.js"></script>
     <script src="js/tilt-effect.js"></script>
     <script src="js/resume-animations.js"></script>
-    <!-- <script src="js/cursor-animation.js"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
               'dark-bg': '#000000',
-              'dark-card': '#161b22',
               'dark-border': '#30363d',
               'dark-text': '#c9d1d9',
-            }
+              'light-bg': '#ffffff',
+              'light-text': '#000000',
+            },
+            fontFamily: {
+              sans: ['"Nunito Sans"', 'sans-serif'],
+            },
           }
         }
       }
     </script>
 </head>
 
-<body class="bg-dark-bg text-dark-text font-sans">
+<body class="dark:bg-dark-bg dark:text-dark-text bg-white text-black font-sans">
+  <div id="p5-canvas"></div>
 
-<nav class="fixed top-0 left-0 w-full flex justify-center space-x-8 p-4 z-50">
-    <a href="index.html" class="transition-colors duration-300 hover:text-white">Home</a>
-    <a href="projects.html" class="transition-colors duration-300 hover:text-white">Projects</a>
-    <a href="resume.html" class="transition-colors duration-300 hover:text-white"> About </a>
+<nav class="fixed top-0 left-0 w-full p-4 z-50">
+    <div class="flex justify-center items-center gap-4 container mx-auto h-12">
+        <div class="flex items-center rounded-full h-12 bg-gray-200/50 dark:bg-[#222]/70 backdrop-blur-md border border-black/10 dark:border-white/10 px-6">
+            <div class="flex space-x-8">
+                <a href="index.html" class="hover:text-gray-400 dark:hover:text-white">Home</a>
+                <a href="projects.html" class="hover:text-gray-400 dark:hover:text-white">Projects</a>
+                <a href="resume.html" class="hover:text-gray-400 dark:hover:text-white"> About </a>
+            </div>
+        </div>
+
+        <button id="theme-toggle" class="group h-12 w-12 rounded-full
+                                        bg-gray-200/50 dark:bg-[#222]/70
+                                        backdrop-blur-md
+                                        border border-black/10 dark:border-white/10
+                                        flex items-center justify-center">
+        <svg id="theme-toggle-sun"
+            class="w-6 h-6 hidden fill-current
+                transition-all duration-300
+                group-hover:[filter:drop-shadow(0_0_2px_var(--glow-light-color-dark))_drop-shadow(0_0_10px_var(--glow-heavy-color-dark))]"
+            viewBox="0 0 16 16">
+        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+        </svg>
+        <svg id="theme-toggle-moon"
+            class="w-6 h-6 hidden fill-current
+                transition-all duration-300
+                group-hover:[filter:drop-shadow(0_0_2px_var(--glow-light-color))_drop-shadow(0_0_8px_var(--glow-heavy-color))]"
+            viewBox="0 0 16 16">
+            <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/> 
+            <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774.258c.346-.115.617-.386.732-.732z"/>
+        </svg>
+    </button>
+    </div>
+    </div>
 </nav>
 
 <main class="container mx-auto px-4 py-24">
   <div class="group pointer-events-none">
-    
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- left -->
-      <div class="group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto">
-        <div class="transition-transform duration-300 ease-in-out hover:scale-105 h-full">
-          <div class="overflow-hidden grainy bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg border border-dark-border fade-in-up-1 h-full">
-            <h2 class="text-2xl font-bold text-white mb-4">Comercial Experience</h2>
-            <div class="mb-4">
-              don't have any experience yet :(
-            </div>
-            <div class="tilt-shine"></div>
+      
+      <!-- Карточка 1 (left) -->
+      <div class="transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto">
+        <div class="overflow-hidden grainy p-6 rounded-lg h-full transition-all duration-300
+                    text-gray-900 dark:text-white 
+                    border border-black/15 dark:border-white/15
+                    bg-gray-200/30 backdrop-blur-md
+                    dark:bg-[#222]/70
+                    group-hover:blur-sm group-hover:brightness-110 dark:group-hover:brightness-75
+                    hover:!blur-none hover:!brightness-100">
+          <h2 class="text-2xl font-bold mb-4"> Commercial Experience</h2>
+          <div class="text-base dark:text-gray-300 mb-4">
+            don't have any experience yet :(
           </div>
+          <div class="tilt-shine"></div>
         </div>
       </div>
       
-      <!-- right -->
-      <div class="group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto">
-        <div class="transition-transform duration-300 ease-in-out hover:scale-105 h-full">
-          <div data-tilt class="overflow-hidden grainy bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg border border-dark-border fade-in-up-1 h-full">
-            <h2 class="text-2xl font-bold text-white mb-4">Education</h2>
-            <div class="mb-6">
-              <h3 class="text-xl font-semibold text-white">Kryvyi Rih National University</h3>
-              <p class="text-sm text-gray-400">Bachelor of Computer Engineering | 2023 - now</p>
-            </div>
-            <hr class="border-t border-dark-border my-4">
-            <div>
-              <h2 class="text-2xl font-bold text-white mb-4">Language</h2>
-              <div>
-                <h3 class="text-xl text-white">Ukrainian</h3>
-                <p class="text-sm text-gray-400">Native</p>
-                <h3 class="text-xl text-white">Russian</h3>
-                <p class="text-sm text-gray-400">Native</p>
-                <h3 class="text-xl text-white">English</h3>
-                <p class="text-sm text-gray-400">reading like B2</p>
-              </div>
-            </div>
-            <div class="tilt-shine"></div>
+      <!-- Карточка 2 (right) -->
+      <div class="transition-transform duration-300 ease-in-out hover:scale-105 pointer-events-auto">
+        <div data-tilt class="overflow-hidden grainy p-6 rounded-lg h-full transition-all duration-300
+                    text-gray-900 dark:text-white 
+                    border border-black/15 dark:border-white/15
+                    bg-gray-200/30 backdrop-blur-md
+                    dark:bg-[#222]/70
+                    group-hover:blur-sm group-hover:brightness-110 dark:group-hover:brightness-75
+                    hover:!blur-none hover:!brightness-100">
+          <h2 class="text-2xl font-bold mb-4">Education</h2>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold">Kryvyi Rih National University</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Bachelor of Computer Engineering | 2023 - now</p>
           </div>
+          <hr class="border-t border-gray-300 dark:border-dark-border my-4">
+          <div>
+            <h2 class="text-2xl font-bold mb-4">Language</h2>
+            <div>
+              <h3 class="text-xl">Ukrainian</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Native</p>
+              <h3 class="text-xl">Russian</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Native</p>
+              <h3 class="text-xl">English</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">reading like B2</p>
+            </div>
+          </div>
+          <div class="tilt-shine"></div>
         </div>
       </div>
     </div>
     
-    <div class="group-hover:opacity-60 hover:!opacity-100 transition-opacity duration-300 pointer-events-auto mt-8">
-  <div class="transition-transform duration-300 ease-in-out hover:scale-100">
-    <div class="grainy bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg border border-dark-border md:col-span-2 fade-in-up-2">
-      <h2 class="text-2xl font-bold text-white mb-4">Other Info</h2>
-      <div class="flex flex-wrap items-center gap-4">
-        <span class="text-white">Resume in PDF format:</span>
-        <a href="additionally/Artem Kolisnychenko Resume.pdf" class="inline-block px-4 py-2 rounded-lg text-white bg-slate-400/20 backdrop-blur-sm border border-white/30 transition-colors duration-300 hover:bg-slate-400/30 hover:border-white/40"> Download (incomplete) </a>
+    <!-- Карточка 3 (Other Info) -->
+    <div class="mt-8 pointer-events-auto">
+      <div class="transition-transform duration-300 ease-in-out">
+        <div class="overflow-hidden grainy p-6 rounded-lg h-full transition-all duration-300
+                    text-gray-900 dark:text-white 
+                    border border-black/15 dark:border-white/15
+                    bg-gray-200/30 backdrop-blur-md
+                    dark:bg-[#222]/70
+                    group-hover:blur-sm group-hover:brightness-110 dark:group-hover:brightness-75
+                    hover:!blur-none hover:!brightness-100">
+          <h2 class="text-2xl font-bold mb-4">Other Info</h2>
+          <div class="flex flex-wrap items-center gap-4">
+            <span>Resume in PDF format:</span>
+            <a href="additionally/Artem Kolisnychenko Resume.pdf" class="inline-block px-4 py-2 rounded-lg 
+                        bg-gray-200/50 border border-gray-300 text-gray-800
+                        dark:bg-slate-400/20 dark:border-white/30 dark:text-white
+                        backdrop-blur-sm transition-colors duration-300 
+                        hover:bg-gray-300/60 hover:dark:bg-slate-400/30"> Download (incomplete) </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-  </div>
 </main>
+
+<script src="js/theme-switcher.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="js/topography-sketch.js"></script>
 </body>
 </html>

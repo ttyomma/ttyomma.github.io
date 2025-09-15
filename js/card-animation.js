@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Получаем все нужные элементы со страницы
     const cards = document.querySelectorAll('.project-card');
     const cardViewerContainer = document.getElementById('card-viewer-container');
     const cardOverlay = document.getElementById('card-overlay');
@@ -12,88 +13,82 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardScale = 1;
     const panelGap = 32;
 
-    //  начальный вид карточек, их фон, обрабатывается после загрузки дома и только один раз
     cards.forEach(card => {
         const imageSrc = card.dataset.imageSrc;
         if (imageSrc) {
             card.style.backgroundImage = `url(${imageSrc})`;
             card.style.backgroundSize = 'cover';
             card.style.backgroundPosition = 'center';
-
-            const textSpan = card.querySelector('span');
-            if (textSpan) {
-                textSpan.style.display = 'none';
-            }
         }
     });
 
     cards.forEach(card => {
-    card.addEventListener('click', () => {
-        if (originalCard) return;
+        card.addEventListener('click', () => {
+            if (originalCard) return;
 
-        originalCard = card;
-        const cardRect = card.getBoundingClientRect();
+            originalCard = card;
+            const cardRect = card.getBoundingClientRect();
 
-        // 1. клон
-        const cardClone = card.cloneNode(true);
-        cardClone.className = 'tilt-card grainy bg-white/10 backdrop-blur-md border border-white/20 rounded-lg w-full h-full flex items-center justify-center shadow-lg';
-        
-        activeCardPlaceholder.innerHTML = '';
-        activeCardPlaceholder.appendChild(cardClone);
-        
-        const imageSrc = card.dataset.imageSrc; 
-        if (imageSrc) {
-            cardClone.style.backgroundImage = `url(${imageSrc})`;
-            cardClone.style.backgroundSize = 'cover';
-            cardClone.style.backgroundPosition = 'center';
-            const textSpan = cardClone.querySelector('span');
-            if (textSpan) {
-                textSpan.style.display = 'none';
+            const cardClone = card.cloneNode(true);
+            const isDarkMode = document.documentElement.classList.contains('dark');
+
+            let cloneClasses = 'tilt-card grainy backdrop-blur-md rounded-lg w-full h-full flex items-center justify-center shadow-lg';
+            if (isDarkMode) {
+                cloneClasses += ' bg-white/10 border-white/20';
+            } else {
+                cloneClasses += ' bg-white border border-gray-200';
             }
-        }
+            cardClone.className = cloneClasses;
 
-        if (typeof initDynamicTilt === 'function') {
-            activeTiltInstance = initDynamicTilt(cardClone);
-        }
+            activeCardPlaceholder.innerHTML = '';
+            activeCardPlaceholder.appendChild(cardClone);
 
-        // финальные корды и размеры карточки
-        const finalCardWidth = cardRect.width * cardScale;
-        const finalCardHeight = cardRect.height * cardScale;
-        const panelWidth = sidePanel.offsetWidth;
-        const finalGroupWidth = finalCardWidth + panelGap + panelWidth;
-        const finalLeftCard = (window.innerWidth - finalGroupWidth) / 2;
-        const finalLeftPanel = finalLeftCard + finalCardWidth + panelGap;
-        const finalTop = (window.innerHeight - finalCardHeight) / 2;
+            const imageSrc = card.dataset.imageSrc;
+            if (imageSrc) {
+                cardClone.style.backgroundImage = `url(${imageSrc})`;
+                cardClone.style.backgroundSize = 'cover';
+                cardClone.style.backgroundPosition = 'center';
+            }
 
-        // начальное положение
-        activeCardPlaceholder.style.width = `${cardRect.width}px`;
-        activeCardPlaceholder.style.height = `${cardRect.height}px`;
-        activeCardPlaceholder.style.top = `${cardRect.top}px`;
-        activeCardPlaceholder.style.left = `${cardRect.left}px`;
-        activeCardPlaceholder.style.opacity = '1';
-        activeCardPlaceholder.style.transform = `scale(1)`;
 
-        sidePanel.style.height = `${finalCardHeight}px`;
-        sidePanel.style.top = `${finalTop}px`;
-        sidePanel.style.left = `${finalLeftCard}px`;
-        sidePanelText.textContent = card.dataset.text;
+            if (typeof initDynamicTilt === 'function') {
+                activeTiltInstance = initDynamicTilt(cardClone);
+            }
+            
+            const finalCardWidth = cardRect.width * cardScale;
+            const finalCardHeight = cardRect.height * cardScale;
+            const panelWidth = sidePanel.offsetWidth;
+            const finalGroupWidth = finalCardWidth + panelGap + panelWidth;
+            const finalLeftCard = (window.innerWidth - finalGroupWidth) / 2;
+            const finalLeftPanel = finalLeftCard + finalCardWidth + panelGap;
+            const finalTop = (window.innerHeight - finalCardHeight) / 2;
 
-        cardViewerContainer.classList.add('active');
-        cardOverlay.classList.add('active');
+            activeCardPlaceholder.style.width = `${cardRect.width}px`;
+            activeCardPlaceholder.style.height = `${cardRect.height}px`;
+            activeCardPlaceholder.style.top = `${cardRect.top}px`;
+            activeCardPlaceholder.style.left = `${cardRect.left}px`;
+            activeCardPlaceholder.style.opacity = '1';
+            activeCardPlaceholder.style.transform = `scale(1)`;
 
-        // старт анимации тут
-        setTimeout(() => {
-            activeCardPlaceholder.style.top = `${finalTop}px`;
-            activeCardPlaceholder.style.left = `${finalLeftCard}px`;
-            activeCardPlaceholder.style.width = `${finalCardWidth}px`;
-            activeCardPlaceholder.style.height = `${finalCardHeight}px`;
-            activeCardPlaceholder.style.transform = `scale(${cardScale})`;
+            sidePanel.style.height = `${finalCardHeight}px`;
+            sidePanel.style.top = `${finalTop}px`;
+            sidePanel.style.left = `${finalLeftCard}px`;
+            sidePanelText.textContent = card.dataset.text;
 
-            sidePanel.style.left = `${finalLeftPanel}px`;
-            sidePanel.classList.add('active');
-        }, 10);
+            cardViewerContainer.classList.add('active');
+            cardOverlay.classList.add('active');
+
+            setTimeout(() => {
+                activeCardPlaceholder.style.top = `${finalTop}px`;
+                activeCardPlaceholder.style.left = `${finalLeftCard}px`;
+                activeCardPlaceholder.style.width = `${finalCardWidth}px`;
+                activeCardPlaceholder.style.height = `${finalCardHeight}px`;
+                activeCardPlaceholder.style.transform = `scale(${cardScale})`;
+                sidePanel.style.left = `${finalLeftPanel}px`;
+                sidePanel.classList.add('active');
+            }, 10);
+        });
     });
-});
 
     function closeCard() {
         if (!originalCard) return;

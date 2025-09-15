@@ -1,16 +1,28 @@
 body {
-    background-color: #000000;
-    color: rgb(255, 255, 255);
-    font-family: sans-serif;
+    --link-underline-color: #000000;
     text-align: center;
     padding-top: 50px;
     background: radial-gradient(300px at var(--x) var(--y), rgba(253, 253, 253, 0.15), transparent 90%);
+    background-color: transparent !important;
 }
 
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
+}
+
+.dark body {
+    --link-underline-color: #ffffff;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+
+    font-weight: 200 1000;
+    font-display: swap;
+    font-style: normal;
 }
 
 h1 {
@@ -49,6 +61,14 @@ h1 {
     opacity: 0.1;
     pointer-events: none;
     z-index: 1;
+}
+
+:root {
+    --glow-light-color: rgba(0, 0, 0, 0.4);
+    --glow-heavy-color: rgba(0, 0, 0, 0.2);
+
+    --glow-light-color-dark: rgba(255, 255, 255, 1);
+    --glow-heavy-color-dark: rgba(255, 255, 255, 0.5);
 }
 
 .tilt-card {
@@ -93,7 +113,7 @@ nav a::after {
     height: 1px;
     bottom: -4px;
     left: 0;
-    background-color: white;
+    background-color: var(--link-underline-color);
     transform-origin: center;
     transition: transform 0.25s ease-out;
 }
@@ -115,7 +135,6 @@ body.card-open {
     opacity: 1;
 }
 
-/* блок информации в карточках */
 #side-panel {
     opacity: 0;
     transform: scale(0.95);
@@ -133,4 +152,40 @@ body.card-open {
 
 .project-card {
     transition: opacity 0.3s ease-in-out;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#p5-canvas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+:root {
+    --content-shadow-color: rgba(255, 255, 255, 0.9);
+
+    --content-glow-color: rgba(0, 0, 0, 0.8);
+}
+
+.dark .content-glow {
+    filter: drop-shadow(0 0 4px var(--content-glow-color))
+            drop-shadow(0 0 8px var(--content-glow-color))
+            drop-shadow(0 0 30px var(--content-glow-color));
+}
+
+.light .content-glow {
+    filter: drop-shadow(0 0 4px var(--content-shadow-color))
+            drop-shadow(0 0 8px var(--content-shadow-color))
+            drop-shadow(0 0 25px var(--content-shadow-color));
 }
