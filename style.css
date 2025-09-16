@@ -189,3 +189,21 @@ body.card-open {
             drop-shadow(0 0 8px var(--content-shadow-color))
             drop-shadow(0 0 25px var(--content-shadow-color));
 }
+
+.toggle-checkbox:checked {
+    right: 0;
+    border-color: #4ade80; /* green-400 */
+}
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #4ade80; /* green-400 */
+}
+
+.animations-disabled *:not([class*="fade-in-up"]) {
+    transition-property: none !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+.animations-disabled * {
+    transition-duration: 0ms !important;
+}
