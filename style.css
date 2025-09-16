@@ -207,3 +207,34 @@ body.card-open {
 .animations-disabled * {
     transition-duration: 0ms !important;
 }
+
+
+:root {
+    --vignette-color: white;
+}
+.dark {
+    --vignette-color: black;
+}
+
+.vignette-overlay {
+    pointer-events: none;
+}
+
+.vignette-overlay::before,
+.vignette-overlay::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 35vh;
+}
+
+.vignette-overlay::before {
+    top: 0;
+    background: linear-gradient(to bottom, var(--vignette-color) 0%, transparent 100%);
+}
+
+.vignette-overlay::after {
+    bottom: 0;
+    background: linear-gradient(to top, var(--vignette-color) 0%, transparent 100%);
+}

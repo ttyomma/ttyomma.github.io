@@ -9,12 +9,12 @@
 let noiseScale = 0.007;
 let baseTimeScale = 0.0001;
 let baseParticleSpeed = 10;
-let stopAnimationAfter = 3;
-let fadeDuration = 3;
+let stopAnimationAfter = 1;
+let fadeDuration = 2;
 
 // --- Settings for devices ---
-let particleCount_Desktop = 1500;
-let particleCount_Mobile = 400;
+let particleCount_Desktop = 1400;
+let particleCount_Mobile = 300;
 let strokeAlpha_Desktop = 15;
 let strokeAlpha_Mobile = 25;
 
@@ -118,10 +118,9 @@ function windowResized() {
 function updateBackgroundOnThemeChange() {
   const isDarkMode = document.documentElement.classList.contains('dark');
   background(isDarkMode ? 0 : 255);
-  redraw(); // Перерисовать один кадр
+  redraw();
 }
 
-// Следим за изменением темы
 const observer = new MutationObserver(() => {
   updateBackgroundOnThemeChange();
 });

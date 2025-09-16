@@ -12,48 +12,45 @@
  ⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣛⠛⠛⠛⠛⠛⢛⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
  ⠀⠀⠀⠀⠀⠿⣿⣿⣿⠿⠿⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⠿⠇⠀⠀⠀
 -->
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="siteicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>tyoma Portfolio</title>
-    <!-- <script src="js/cursor-animation.js"></script> -->
     <script src="js/theme-loader.js"></script>
     <script src="js/tilt-effect.js"></script>
     <script src="js/resume-animations.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              'dark-bg': '#000000',
-              'dark-border': '#30363d',
-              'dark-text': '#c9d1d9',
-              'light-bg': '#ffffff',
-              'light-text': '#000000',
-            },
-            fontFamily: {
-              sans: ['"Nunito Sans"', 'sans-serif'],
-            },
-          }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#000000',
+                        'dark-text': '#ffffff',
+                        'light-bg': '#ffffff',
+                        'light-text': '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['"Nunito Sans"'],
+                    },
+                }
+            }
         }
-      }
     </script>
 </head>
 
 <body class="dark:text-dark-text text-black font-sans overflow-hidden">
     <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
     <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
+    <div class="vignette-overlay fixed inset-0 z-0"></div>
 
 <nav class="fixed top-0 left-0 w-full p-4 z-50">
         <div class="flex justify-center items-center gap-4 container mx-auto h-12">
-
             <div class="flex items-center rounded-full h-12 bg-gray-200/50 dark:bg-[#222]/70 backdrop-blur-md border border-black/10 dark:border-white/10 px-6">
                 <div class="flex space-x-8">
                     <a href="index.html" class="hover:text-gray-400 dark:hover:text-white">Home</a>
@@ -79,15 +76,19 @@
             </button>
 
             <button id="settings-toggle" class="group h-12 w-12 rounded-full
-                                                bg-gray-200/50 dark:bg-[#222]/70
-                                                backdrop-blur-md
-                                                border border-black/10 dark:border-white/10
-                                                flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
-                </svg>
-            </button>
+    bg-gray-200/50 dark:bg-[#222]/70
+    backdrop-blur-md
+    border border-black/10 dark:border-white/10
+    flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+        class="bi bi-gear w-6 h-6 transition-all duration-300
+        group-hover:[filter:drop-shadow(0_0_2px_var(--glow-light-color))_drop-shadow(0_0_8px_var(--glow-heavy-color))]
+        dark:group-hover:[filter:drop-shadow(0_0_2px_var(--glow-light-color-dark))_drop-shadow(0_0_10px_var(--glow-heavy-color-dark))]"
+        viewBox="0 0 16 16">
+        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a.873.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+    </svg>
+</button>
 
             <div id="settings-panel" class="fixed inset-0 z-[60]
                                 opacity-0 pointer-events-none transition-opacity duration-300">
@@ -117,13 +118,13 @@
                         <label for="ui-animation-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer"></label>
                     </div>
                 </div>
+        </div>
+    </div>
+</div>
 
             </div>
         </div>
-    </div>
-  </div>
-</div>
-</nav>
+    </nav>
 
 <main class="container mx-auto px-4 py-24">
   <div class="group pointer-events-none">
@@ -201,6 +202,11 @@
     </div>
   </div>
 </main>
+
+<footer class="fixed bottom-4 w-full text-center text-sm select-none">
+    <img class="inline w-62 h-16 op content-glow" src="images/crystalwatermark1.png" alt="CrystalShade watermark">
+    <p class="opacity-50 content-glow">Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a></p>
+    <p class="opacity-50 content-glow">&copy; 2025 CrystalShade</p>
 
 <script src="js/theme-switcher.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
