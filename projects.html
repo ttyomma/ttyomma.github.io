@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="siteicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>tyoma Portfolio</title>
+    <title>My Portfolio</title>
     <script src="js/theme-loader.js"></script>
     <script src="js/tilt-effect.js"></script>
     <script src="js/card-animation.js"></script>
@@ -45,7 +45,7 @@
     </script>
 </head>
 
-<body class="dark:text-dark-text text-black font-sans overflow-hidden">
+<body class="dark:text-dark-text text-black font-sans">
     <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
     <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
     <div class="vignette-overlay fixed inset-0 z-0"></div>
@@ -122,23 +122,30 @@
         </div>
     </div>
 </div>
-            </div>
-        </div>
-    </nav>
+</nav>
 
 <div id="card-viewer-container" class="fixed inset-0 z-40 pointer-events-none">
   <div id="card-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-500"></div>
-  <div id="active-card-placeholder" class="fixed rounded-lg z-50 transition-all duration-500 ease-in-out"> </div>
-  <div id="side-panel" class="fixed grainy bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 w-96 text-white flex flex-col transition-all duration-500 ease-in-out opacity-0">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-2xl font-bold">Info</h2>
-      <button id="close-btn" class="text-3xl leading-none">&times;</button>
+  
+  <!-- Плейсхолдер для активной карточки -->
+  <div id="active-card-placeholder" class="fixed rounded-lg z-50 transition-all duration-500 ease-in-out"></div>
+  
+  <!-- АДАПТИВНАЯ БОКОВАЯ ПАНЕЛЬ -->
+  <div id="side-panel" class="fixed grainy rounded-lg p-4 md:p-6 flex flex-col transition-all duration-500 ease-in-out opacity-0
+                          text-gray-900 dark:text-white 
+                          border border-black/15 dark:border-white/15
+                          bg-gray-200/50 backdrop-blur-md
+                          dark:bg-[#222]/70
+                          w-[90vw] md:w-96">
+    <div class="flex justify-between items-center mb-2 md:mb-4">
+      <h2 class="text-xl md:text-2xl font-bold">Info</h2>
+      <button id="close-btn" class="text-2xl md:text-3xl leading-none">&times;</button>
     </div>
-    <p id="side-panel-text" class="overflow-y-auto"></p>
+    <p id="side-panel-text" class="text-sm md:text-base overflow-y-auto"></p>
   </div>
 </div>
 
-<main class="w-full max-w-5xl mx-auto px-4 py-24">
+<main class="w-full max-w-5xl mx-auto px-4 py-24 pb-48">
   <div class="group pointer-events-none">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
 

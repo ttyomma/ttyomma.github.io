@@ -29,9 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
             originalCard = card;
             const cardRect = card.getBoundingClientRect();
 
+            const isMobile = window.innerWidth < 768;
+
+            const finalCardScale = isMobile ? 1.1 : 1.2;
+            const finalPanelWidth = isMobile ? 280 : 384;
+            const panelGap = isMobile ? 16 : 32;
+
             const cardClone = card.cloneNode(true);
             const isDarkMode = document.documentElement.classList.contains('dark');
-
             let cloneClasses = 'tilt-card grainy backdrop-blur-md rounded-lg w-full h-full flex items-center justify-center shadow-lg';
             if (isDarkMode) {
                 cloneClasses += ' bg-white/10 border-white/20';
@@ -39,29 +44,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 cloneClasses += ' bg-white border border-gray-200';
             }
             cardClone.className = cloneClasses;
-
+            
             activeCardPlaceholder.innerHTML = '';
             activeCardPlaceholder.appendChild(cardClone);
-
+            
             const imageSrc = card.dataset.imageSrc;
             if (imageSrc) {
                 cardClone.style.backgroundImage = `url(${imageSrc})`;
                 cardClone.style.backgroundSize = 'cover';
                 cardClone.style.backgroundPosition = 'center';
             }
-
-
             if (typeof initDynamicTilt === 'function') {
                 activeTiltInstance = initDynamicTilt(cardClone);
             }
-            
-            const finalCardWidth = cardRect.width * cardScale;
-            const finalCardHeight = cardRect.height * cardScale;
-            const panelWidth = sidePanel.offsetWidth;
-            const finalGroupWidth = finalCardWidth + panelGap + panelWidth;
-            const finalLeftCard = (window.innerWidth - finalGroupWidth) / 2;
-            const finalLeftPanel = finalLeftCard + finalCardWidth + panelGap;
-            const finalTop = (window.innerHeight - finalCardHeight) / 2;
+
+            const finalCardWidth = cardRect.width * finalCardScale;
+            const finalCardHeight = cardRect.height * finalCardScale;
+
+            let finalLeftCard, finalLeftPanel, finalTop;
+
+            if (isMobile) {
+                finalTop = 80;
+                finalLeftCard = (window.innerWidth - finalCardWidth) / 2;
+                finalLeftPanel = (window.innerWidth - finalPanelWidth) / 2;
+                
+                sidePanel.style.top = `${finalTop + finalCardHeight + panelGap}px`;
+                sidePanel.style.left = `${finalLeftPanel}px`;
+                sidePanel.style.width = `${finalPanelWidth}px`;
+                sidePanel.style.height = `auto`;
+            } else {
+                const finalGroupWidth = finalCardWidth + panelGap + finalPanelWidth;
+                finalLeftCard = (window.innerWidth - finalGroupWidth) / 2;
+                finalLeftPanel = finalLeftCard + finalCardWidth + panelGap;
+                finalTop = (window.innerHeight - finalCardHeight) / 2;
+                
+                sidePanel.style.top = `${finalTop}px`;
+                sidePanel.style.left = `${finalLeftCard}px`;
+                sidePanel.style.width = `${finalPanelWidth}px`;
+                sidePanel.style.height = `${finalCardHeight}px`;
+            }
 
             activeCardPlaceholder.style.width = `${cardRect.width}px`;
             activeCardPlaceholder.style.height = `${cardRect.height}px`;
@@ -69,12 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
             activeCardPlaceholder.style.left = `${cardRect.left}px`;
             activeCardPlaceholder.style.opacity = '1';
             activeCardPlaceholder.style.transform = `scale(1)`;
-
-            sidePanel.style.height = `${finalCardHeight}px`;
-            sidePanel.style.top = `${finalTop}px`;
-            sidePanel.style.left = `${finalLeftCard}px`;
+            
             sidePanelText.textContent = card.dataset.text;
-
             cardViewerContainer.classList.add('active');
             cardOverlay.classList.add('active');
 
@@ -83,13 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeCardPlaceholder.style.left = `${finalLeftCard}px`;
                 activeCardPlaceholder.style.width = `${finalCardWidth}px`;
                 activeCardPlaceholder.style.height = `${finalCardHeight}px`;
-                activeCardPlaceholder.style.transform = `scale(${cardScale})`;
-                sidePanel.style.left = `${finalLeftPanel}px`;
+                
+                if (!isMobile) {
+                    sidePanel.style.left = `${finalLeftPanel}px`;
+                }
+                
                 sidePanel.classList.add('active');
             }, 10);
         });
     });
-
+    
     function closeCard() {
         if (!originalCard) return;
         const cardRect = originalCard.getBoundingClientRect();

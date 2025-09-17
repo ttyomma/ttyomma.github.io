@@ -3,19 +3,19 @@
   // ▐█.▪▐█▌▐█▪ ▄█▀▄ ▐█ ▌▐▌▐█·▄█▀▀█ 
   // ▐█▌· ▐█▀·.▐█▌.▐▌██ ██▌▐█▌▐█ ▪▐▌
   // ▀▀▀   ▀ •  ▀█▄▀▪▀▀  █▪▀▀▀ ▀  ▀ 
-// u can coppy this effect, but give me any credits if you use it :)
+// u can coppy this effect, but give me any credits if you use it :) (like link on my github or portfolio)
 
 // --- Effect Settings ---
-let noiseScale = 0.007;
-let baseTimeScale = 0.0001;
+let noiseScale = 0.009;
+let baseTimeScale = 0.0005;
 let baseParticleSpeed = 10;
 let stopAnimationAfter = 1;
 let fadeDuration = 2;
 
 // --- Settings for devices ---
-let particleCount_Desktop = 1400;
-let particleCount_Mobile = 300;
-let strokeAlpha_Desktop = 15;
+let particleCount_Desktop = 800;
+let particleCount_Mobile = 200;
+let strokeAlpha_Desktop = 20;
 let strokeAlpha_Mobile = 25;
 
 let particleCount;
@@ -25,6 +25,7 @@ let zoff = 0;
 let animationState = 'running';
 let startTime;
 let lastKnownThemeIsDark = null;
+
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
@@ -44,9 +45,8 @@ function setup() {
 
 function draw() {
   const isDarkMode = document.documentElement.classList.contains('dark');
-  
   if (isDarkMode !== lastKnownThemeIsDark) {
-    loop(); 
+    loop();
     startAnimation();
   }
   
@@ -104,6 +104,7 @@ function startAnimation() {
   
   const currentThemeIsDark = document.documentElement.classList.contains('dark');
   background(currentThemeIsDark ? 0 : 255);
+  
   lastKnownThemeIsDark = currentThemeIsDark; 
   animationState = 'running';
   startTime = millis();
@@ -114,14 +115,3 @@ function windowResized() {
   loop();
   startAnimation();
 }
-
-function updateBackgroundOnThemeChange() {
-  const isDarkMode = document.documentElement.classList.contains('dark');
-  background(isDarkMode ? 0 : 255);
-  redraw();
-}
-
-const observer = new MutationObserver(() => {
-  updateBackgroundOnThemeChange();
-});
-observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
