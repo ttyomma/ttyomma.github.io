@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const newTheme = isDarkMode ? 'light' : 'dark';
             localStorage.setItem('theme', newTheme);
             applyTheme(newTheme);
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
         });
     }
 });

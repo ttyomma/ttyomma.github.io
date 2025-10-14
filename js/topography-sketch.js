@@ -9,7 +9,7 @@
 let noiseScale = 0.009;
 let baseTimeScale = 0.0005;
 let baseParticleSpeed = 10;
-let stopAnimationAfter = 1;
+let stopAnimationAfter = 2;
 let fadeDuration = 2;
 
 // --- Settings for devices ---
@@ -40,15 +40,20 @@ function setup() {
     strokeAlpha = strokeAlpha_Desktop;
     frameRate(60);
   }
+
+  window.addEventListener('themeChanged', (event) => {
+    loop();
+    clear();
+    background(event.detail.theme === 'dark' ? 0 : 255);
+    lastKnownThemeIsDark = event.detail.theme === 'dark';
+    startAnimation();
+  });
+
   startAnimation();
 }
 
 function draw() {
   const isDarkMode = document.documentElement.classList.contains('dark');
-  if (isDarkMode !== lastKnownThemeIsDark) {
-    loop();
-    startAnimation();
-  }
   
   let elapsedTime = (millis() - startTime) / 1000;
   if (animationState === 'running' && elapsedTime > stopAnimationAfter) {
@@ -94,6 +99,7 @@ function draw() {
 }
 
 function startAnimation() {
+  clear();
   particles = [];
   for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -107,6 +113,7 @@ function startAnimation() {
   
   lastKnownThemeIsDark = currentThemeIsDark; 
   animationState = 'running';
+  zoff = 0;
   startTime = millis();
 }
 
