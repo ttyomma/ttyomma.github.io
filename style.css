@@ -30,6 +30,13 @@ html, body {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Yoppa';
+    src: url('fonts/Yoppa-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 h1 {
     display: inline-block;
     vertical-align: bottom;
@@ -122,9 +129,9 @@ nav a::after {
 }
 
 .dark nav a:hover {
-    filter: drop-shadow(0 0 6px var(--glow-light-color-dark))
-            drop-shadow(0 0 12px var(--glow-heavy-color-dark))
-            drop-shadow(0 0 18px var(--glow-heavy-color-dark));
+    filter: drop-shadow(0 0 0px var(--glow-light-color-dark))
+            drop-shadow(0 0 8px var(--glow-heavy-color-dark))
+            drop-shadow(0 0 12px var(--glow-heavy-color-dark));
 }
 
 .light nav a:hover {
@@ -348,7 +355,7 @@ nav a:hover::after {
     box-shadow: 0 0 20px rgba(251, 146, 60, 0.3);
 }
 
-/* DevOps Skills */
+/* DevOps Skills Glow */
 .devops-skill {
     box-shadow: 0 0 0 rgba(147, 51, 234, 0);
 }

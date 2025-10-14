@@ -122,11 +122,14 @@
     </nav>
 
     <div class="relative z-10 flex flex-col items-center justify-center min-h-[80vh] pt-24 px-4 sm:px-8">
-        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full flex items-center justify-center">
+        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full flex items-center justify-center relative z-30">
             <img class="w-full h-full object-cover rounded-full content-glow" src="images/pfp.jpg" alt="avatar">
         </div>
-        <h1 id="distort-text" class="mt-5 text-3xl sm:text-4xl md:text-5xl font-black fade-in-up-2 bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent content-glow" style="user-select: none;">Artem</h1>
-        <div class="mt-5 flex flex-wrap justify-center gap-4 fade-in-up-3">
+        <h1 id="distort-text" class="mt-5 text-3xl sm:text-4xl md:text-5xl font-black fade-in-up-2 bg-gradient-to-b from-black to-black dark:from-white dark:to-gray-400 bg-clip-text text-transparent content-glow font-[Yoppa] px-4 relative z-20" style="user-select: none;">
+            <span class="absolute inset-0 blur-xl bg-gradient-to-b from-black/30 to-black/40 dark:from-white/30 dark:to-white/20 z-10 scale-110"></span>
+            Artem
+        </h1>
+        <div class="mt-5 flex flex-wrap justify-center gap-4 fade-in-up-3 relative z-30">
             <!-- tg -->
             <a href="https://t.me/InOpiumWeTrust" target="_blank" aria-label="Telegram" 
                         class="hover:scale-95 social-icon">
