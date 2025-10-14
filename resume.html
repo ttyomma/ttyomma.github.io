@@ -44,7 +44,10 @@
     </script>
 </head>
 
-<body class="dark:text-dark-text text-black font-sans">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<body class="dark:text-dark-text text-black font-sans min-h-screen flex flex-col">
     <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
     <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
     <div class="vignette-overlay fixed inset-0 z-0"></div>
@@ -85,7 +88,7 @@
                         dark:group-hover:[filter:drop-shadow(0_0_2px_var(--glow-light-color-dark))_drop-shadow(0_0_10px_var(--glow-heavy-color-dark))]"
                     viewBox="0 0 16 16">
                     <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a.873.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a.873.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a.873.873 0 0 0 2.692-1.115z"/>
                     </svg>
             </button>
 
@@ -135,7 +138,7 @@
                     dark:bg-[#222]/70
                     group-hover:blur-sm group-hover:brightness-110 dark:group-hover:brightness-75
                     hover:!blur-none hover:!brightness-100">
-          <h2 class="text-2xl font-bold mb-4"style="user-select: none;"> Commercial Experience</h2>
+          <h2 class="text-2xl font-bold mb-4" style="user-select: none;"> Commercial Experience</h2>
           <div class="text-base dark:text-gray-300 mb-4">
             don't have any experience yet :(
           </div>
@@ -155,18 +158,18 @@
           <h2 class="text-2xl font-bold mb-4" style="user-select: none;">Education</h2>
           <div class="mb-6">
             <h3 class="text-xl font-semibold">Kryvyi Rih National University</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">Bachelor of Computer Engineering | 2023 - now</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400" style="user-select: none;">Bachelor of Computer Engineering | 2023 - now</p>
           </div>
           <hr class="border-t border-gray-300 dark:border-dark-border my-4">
           <div>
-            <h2 class="text-2xl font-bold mb-4">Language</h2>
+            <h2 class="text-2xl font-bold mb-4" style="user-select: none;">Language</h2>
             <div>
               <h3 class="text-xl">Ukrainian</h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Native</p>
               <h3 class="text-xl">Russian</h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Native</p>
               <h3 class="text-xl">English</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">never tested my English level. reading like B1, but speaking like A2</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">never tested my English level, probably A2</p>
             </div>
           </div>
           <div class="tilt-shine"></div>
@@ -187,7 +190,7 @@
           <h2 class="text-2xl font-bold mb-6" style="user-select: none;">Skills</h2>
           
           <!-- Frontend Development -->
-          <div class="mb-8 skill-category frontend-dev">
+          <div class="mb-8 skill-category frontend-dev" style="user-select: none;">
             <h3 class="text-xl font-semibold mb-4 flex items-center gap-2 pl-2">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8z"/>
@@ -201,7 +204,16 @@
                             border-2 border-blue-200 dark:border-blue-700/50
                             text-blue-800 dark:text-blue-200
                             hover:border-blue-400 dark:hover:border-blue-500
-                            html-skill">HTML</span>
+                            html-skill">
+                  HTML
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-100/40 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-100/40 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-100/40 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-100/40 dark:bg-blue-700/30"></div>
+                  </div>
+                </span>
               </div>
               <div class="skill-item">
                 <span class="px-4 py-2 rounded-lg text-sm inline-block
@@ -209,7 +221,16 @@
                             border-2 border-pink-200 dark:border-pink-700/50
                             text-pink-800 dark:text-pink-200
                             hover:border-pink-400 dark:hover:border-pink-500
-                            css-skill">CSS</span>
+                            css-skill">
+                  CSS
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-pink-400 dark:bg-pink-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-pink-400 dark:bg-pink-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-pink-400 dark:bg-pink-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-pink-100/40 dark:bg-pink-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-pink-100/40 dark:bg-pink-700/30"></div>
+                  </div>
+                </span>
               </div>
               <div class="skill-item">
                 <span class="px-4 py-2 rounded-lg text-sm inline-block
@@ -217,13 +238,39 @@
                             border-2 border-teal-200 dark:border-teal-700/50
                             text-teal-800 dark:text-teal-200
                             hover:border-teal-400 dark:hover:border-teal-500
-                            tailwind-skill">Tailwind CSS</span>
+                            tailwind-skill">
+                  Tailwind CSS
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-teal-400 dark:bg-teal-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-teal-200 dark:bg-teal-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-teal-100/40 dark:bg-teal-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-teal-100/40 dark:bg-teal-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-teal-100/40 dark:bg-teal-700/30"></div>
+                  </div>
+                </span>
+              </div>
+              <div class="skill-item">
+                <span class="px-4 py-2 rounded-lg text-sm inline-block
+                            bg-yellow-100/50 dark:bg-yellow-900/30
+                            border-2 border-yellow-200 dark:border-yellow-700/50
+                            text-yellow-800 dark:text-yellow-200
+                            hover:border-yellow-400 dark:hover:border-yellow-500
+                            js-skill">
+                  JavaScript
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-yellow-400 dark:bg-yellow-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-yellow-100/40 dark:bg-yellow-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-yellow-100/40 dark:bg-yellow-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-yellow-100/40 dark:bg-yellow-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-yellow-100/40 dark:bg-yellow-700/30"></div>
+                  </div>
+                </span>
               </div>
             </div>
           </div>
 
           <!-- Database -->
-          <div class="mb-8 skill-category database-dev">
+          <div class="mb-8 skill-category database-dev" style="user-select: none;">
             <h3 class="text-xl font-semibold mb-4 flex items-center gap-2 pl-2">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M3.904 1.777C4.978 1.289 6.427 1 8 1s3.022.289 4.096.777C13.125 2.245 14 2.993 14 4s-.875 1.755-1.904 2.223C11.022 6.711 9.573 7 8 7s-3.022-.289-4.096-.777C2.875 5.755 2 5.007 2 4s.875-1.755 1.904-2.223"/>
@@ -240,13 +287,22 @@
                             border-2 border-orange-200 dark:border-orange-700/50
                             text-orange-800 dark:text-orange-200
                             hover:border-orange-400 dark:hover:border-orange-500
-                            database-skill">SQL Basics</span>
+                            database-skill">
+                  SQL Basics
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-orange-400 dark:bg-orange-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-700/30"></div>
+                  </div>
+                </span>
               </div>
             </div>
           </div>
 
           <!-- Office Tools -->
-          <div class="mb-8 skill-category office-tools">
+          <div class="mb-8 skill-category office-tools" style="user-select: none;">
             <h3 class="text-xl font-semibold mb-4 flex items-center gap-2 pl-2">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
@@ -261,7 +317,16 @@
                             border-2 border-blue-200 dark:border-blue-700/50
                             text-blue-800 dark:text-blue-200
                             hover:border-blue-400 dark:hover:border-blue-500
-                            word-skill">Microsoft Word</span>
+                            word-skill">
+                  Microsoft Word
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-100/40 dark:bg-blue-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-blue-100/40 dark:bg-blue-700/30"></div>
+                  </div>
+                </span>
               </div>
               <div class="skill-item">
                 <span class="px-4 py-2 rounded-lg text-sm inline-block
@@ -269,13 +334,51 @@
                             border-2 border-green-200 dark:border-green-700/50
                             text-green-800 dark:text-green-200
                             hover:border-green-400 dark:hover:border-green-500
-                            excel-skill">Microsoft Excel</span>
+                            excel-skill">
+                  Microsoft Excel
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-400 dark:bg-green-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-100/40 dark:bg-green-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-100/40 dark:bg-green-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-green-100/40 dark:bg-green-700/30"></div>
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Programming Languages -->
+          <div class="mb-8 skill-category programming-lang" style="user-select: none;">
+            <h3 class="text-xl font-semibold mb-4 flex items-center gap-2 pl-2">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+              </svg>
+              Programming Languages
+            </h3>
+            <div class="flex flex-wrap gap-3 pl-4">
+              <div class="skill-item">
+                <span class="px-4 py-2 rounded-lg text-sm inline-block
+                            bg-indigo-100/50 dark:bg-indigo-900/30
+                            border-2 border-indigo-200 dark:border-indigo-700/50
+                            text-indigo-800 dark:text-indigo-200
+                            hover:border-indigo-400 dark:hover:border-indigo-500
+                            csharp-skill">
+                  C#
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-indigo-400 dark:bg-indigo-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-indigo-100/40 dark:bg-indigo-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-indigo-100/40 dark:bg-indigo-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-indigo-100/40 dark:bg-indigo-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-indigo-100/40 dark:bg-indigo-700/30"></div>
+                  </div>
+                </span>
               </div>
             </div>
           </div>
 
           <!-- DevOps -->
-          <div class="mb-8 skill-category devops-dev">
+          <div class="mb-8 skill-category devops-dev" style="user-select: none;">
             <h3 class="text-xl font-semibold mb-4 flex items-center gap-2 pl-2">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/>
@@ -283,25 +386,60 @@
               DevOps
             </h3>
             <div class="flex flex-wrap gap-3 pl-4">
-              <div class="skill-item">
-                <span class="px-4 py-2 rounded-lg text-sm inline-block
-                            bg-purple-100/50 dark:bg-purple-900/30
-                            border-2 border-purple-200 dark:border-purple-700/50
-                            text-purple-800 dark:text-purple-200
-                            hover:border-purple-400 dark:hover:border-purple-500
-                            devops-skill">CI/CD Basics Theory</span>
-              </div>
               <div class="skill-item" data-tooltip="Version control, collaboration, and open source">
                 <span class="px-4 py-2 rounded-lg text-sm inline-block
                             bg-gray-100/60 dark:bg-gray-800/40
                             border-2 border-gray-300 dark:border-gray-600/60
                             text-gray-900 dark:text-gray-100
                             hover:border-gray-400 dark:hover:border-gray-400
-                            github-skill flex items-center gap-2">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                  </svg>
-                  GitHub
+                            github-skill flex flex-col items-center gap-2">
+                  <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                  </div>
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-300"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-300"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-100/40 dark:bg-gray-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-100/40 dark:bg-gray-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-100/40 dark:bg-gray-700/30"></div>
+                  </div>
+                </span>
+              </div>
+              <div class="skill-item">
+                <span class="px-4 py-2 rounded-lg text-sm inline-block
+                            bg-purple-100/50 dark:bg-purple-900/30
+                            border-2 border-purple-200 dark:border-purple-700/50
+                            text-purple-800 dark:text-purple-200
+                            hover:border-purple-400 dark:hover:border-purple-500
+                            devops-skill">
+                  CI/CD Basics Theory
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-purple-400 dark:bg-purple-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-purple-100/40 dark:bg-purple-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-purple-100/40 dark:bg-purple-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-purple-100/40 dark:bg-purple-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-purple-100/40 dark:bg-purple-700/30"></div>
+                  </div>
+                </span>
+              </div>
+              <div class="skill-item">
+                <span class="px-4 py-2 rounded-lg text-sm inline-block
+                            bg-orange-100/50 dark:bg-orange-900/30
+                            border-2 border-orange-200 dark:border-orange-700/50
+                            text-orange-800 dark:text-orange-200
+                            hover:border-orange-400 dark:hover:border-orange-500
+                            postman-skill">
+                  Postman
+                  <div class="mt-1 flex justify-center gap-1">
+                    <div class="w-2 h-2 rounded-full bg-orange-400 dark:bg-orange-500"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-700/30"></div>
+                    <div class="w-2 h-2 rounded-full bg-orange-100/40 dark:bg-orange-700/30"></div>
+                  </div>
                 </span>
               </div>
             </div>
@@ -322,15 +460,18 @@
   </div>
 </main>
 
-<footer class="fixed bottom-4 w-full text-center text-sm select-none">
+  <footer class="w-full text-center text-sm select-none pb-12">
     <img class="inline w-62 h-16 op content-glow" src="images/crystalwatermark1.png" alt="CrystalShade watermark">
-    <p class="opacity-50 content-glow">Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a></p>
+    <p class="opacity-50 content-glow">
+      Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a>
+    </p>
     <p class="opacity-50 content-glow">&copy; 2025 CrystalShade</p>
-</footer>
+  </footer>
 
 <script src="js/theme-switcher.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="js/topography-sketch.js"></script>
 <script src="js/settings.js"></script>
+<script src="js/custom-cursor.js"></script>
 </body>
 </html>

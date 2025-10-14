@@ -43,7 +43,10 @@
     </script>
 </head>
 
-<body class="dark:text-dark-text text-black font-sans overflow-x-hidden">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<body class="dark:text-dark-text text-black font-sans overflow-x-hidden min-h-screen flex flex-col">
     <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
     <div id="p5-canvas" class="fixed inset-0 z-10"></div>
     <div class="vignette-overlay fixed inset-0 z-0"></div>
@@ -175,14 +178,17 @@
     </div>
 </div>
 
-<footer class="fixed bottom-4 w-full text-center text-sm select-none" style="user-select: none;">
-    <img class="inline w-62 h-16 op content-glow" src="images/crystalwatermark1.png" alt="CrystalShade watermark">
-    <p class="opacity-50 content-glow">Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a></p>
-    <p class="opacity-50 content-glow">&copy; 2025 CrystalShade</p>
-</footer>
+    <footer class="w-full text-center text-sm select-none pb-12">
+        <img class="inline w-62 h-16 op content-glow" src="images/crystalwatermark1.png" alt="CrystalShade watermark">
+        <p class="opacity-50 content-glow">
+            Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a>
+        </p>
+        <p class="opacity-50 content-glow">&copy; 2025 CrystalShade</p>
+    </footer>
 
 <script src="js/theme-switcher.js"></script>
 <script src="js/topography-sketch.js"></script>
 <script src="js/settings.js"></script>
+<script src="js/custom-cursor.js"></script>
 </body>
 </html>

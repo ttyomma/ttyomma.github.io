@@ -316,6 +316,17 @@ nav a:hover::after {
     box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
 }
 
+/* JavaScript */
+.js-skill {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+}
+.js-skill:hover {
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+}
+.dark .js-skill:hover {
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+}
+
 /* Word */
 .word-skill {
     box-shadow: 0 0 0 rgba(37, 99, 235, 0);
@@ -355,6 +366,17 @@ nav a:hover::after {
     box-shadow: 0 0 20px rgba(251, 146, 60, 0.3);
 }
 
+/* C# */
+.csharp-skill {
+    box-shadow: 0 0 0 rgba(99, 102, 241, 0);
+}
+.csharp-skill:hover {
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+.dark .csharp-skill:hover {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
 /* DevOps Skills Glow */
 .devops-skill {
     box-shadow: 0 0 0 rgba(147, 51, 234, 0);
@@ -366,6 +388,17 @@ nav a:hover::after {
 
 .dark .devops-skill:hover {
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Postman */
+.postman-skill {
+    box-shadow: 0 0 0 rgba(255, 108, 55, 0);
+}
+.postman-skill:hover {
+    box-shadow: 0 0 15px rgba(255, 108, 55, 0.3);
+}
+.dark .postman-skill:hover {
+    box-shadow: 0 0 20px rgba(255, 108, 55, 0.3);
 }
 
 .github-skill {
@@ -380,4 +413,77 @@ nav a:hover::after {
 
 .skill-item:hover span {
     transform: translateY(-2px);
+}
+
+
+
+/* Cursor */
+* {
+    cursor: none;
+}
+
+body.no-touch * {
+    cursor: none;
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.cursor-dot.visible {
+    opacity: 1;
+}
+
+.dark .cursor-dot {
+    border-color: #fff;
+}
+
+body:active .cursor-dot {
+    background-color: #000;
+}
+
+.dark body:active .cursor-dot {
+    background-color: #fff;
+}
+
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    background-color: white;
+    mix-blend-mode: difference;
+    box-shadow: 0 0 15px white;
+    opacity: 0;
+    transition: width 0.2s ease-out, 
+                height 0.2s ease-out,
+                box-shadow 0.2s ease-out,
+                opacity 0.3s ease-in-out;
+}
+
+.cursor-outline.visible {
+    opacity: 1;
+}
+
+.cursor-outline.hover {
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 0 25px white;
 }
