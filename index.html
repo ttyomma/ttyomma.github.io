@@ -125,13 +125,22 @@
     </nav>
 
     <div class="relative z-10 flex flex-col items-center justify-center min-h-[80vh] pt-24 px-4 sm:px-8">
-        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full flex items-center justify-center relative z-30">
-            <img class="w-full h-full object-cover rounded-full content-glow" src="images/pfp.jpg" alt="avatar">
+        <div id="pfp-container" class="w-40 h-40 sm:w-55 sm:h-55 rounded-full relative z-30 cursor-pointer select-none">
+            <img id="pfp-main" class="w-full h-full object-cover rounded-full content-glow transition-opacity duration-300" src="images/pfp.jpg" alt="avatar">
+            <img id="pfp-hidden" class="absolute inset-0 w-full h-full object-cover rounded-full transition-opacity duration-300 opacity-0 pointer-events-none" src="images/pfp.jpg" alt="hidden avatar">
         </div>
-        <h1 id="distort-text" class="mt-5 text-3xl sm:text-4xl md:text-5xl font-black fade-in-up-2 bg-gradient-to-b from-black to-black dark:from-white dark:to-gray-400 bg-clip-text text-transparent content-glow font-[Yoppa] px-4 relative z-20" style="user-select: none;">
+
+        <div id="name-container" class="relative p-5">
+            <h1 id="distort-text" class="mt-5 text-3xl sm:text-4xl md:text-5xl font-black fade-in-up-2 bg-gradient-to-b from-black to-black dark:from-white dark:to-gray-400 bg-clip-text text-transparent content-glow font-[Yoppa] px-4 relative z-20" style="user-select: none;">
             <span class="absolute inset-0 blur-xl bg-gradient-to-b from-black/30 to-black/40 dark:from-white/30 dark:to-white/20 z-10 scale-110"></span>
-            Artem
-        </h1>
+                Artem
+            </h1>
+
+            <h1 id="hidden-text" class="text-3xl sm:text-4xl md:text-5xl font-black bg-gradient-to-tr from-green-900 via-emerald-700 to-green-400 bg-clip-text text-transparent content-glow font-[Yoppa] px-4 transition-opacity duration-300 opacity-0 pointer-events-none" style="user-select: none;">
+                CrystalShade
+            </h1>
+        </div>
+
         <div class="mt-5 flex flex-wrap justify-center gap-4 fade-in-up-3 relative z-30">
             <!-- tg -->
             <a href="https://t.me/InOpiumWeTrust" target="_blank" aria-label="Telegram" 
@@ -190,5 +199,6 @@
 <script src="js/topography-sketch.js"></script>
 <script src="js/settings.js"></script>
 <script src="js/custom-cursor.js"></script>
+<script src="js/secret.js"></script>
 </body>
 </html>

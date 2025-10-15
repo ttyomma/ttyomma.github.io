@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .github-skill svg {
     vertical-align: middle;
     margin-bottom: 2px;
@@ -486,4 +488,64 @@ body:active .cursor-dot {
     width: 35px;
     height: 35px;
     box-shadow: 0 0 25px white;
+}
+
+/* Download Button */
+.light #download-btn.is-opening {
+    background-color: #cfcfd1;
+    color: #121820 !important;
+    border-color: #9ca3af;
+}
+
+/*.dark #download-btn.is-opening {
+    background-color: #374151;
+    border-color: #6b7280; 
+}  for dark*/
+
+#download-btn:hover {
+    animation: pulse-button 2s infinite ease-in-out;
+}
+
+@keyframes pulse-button {
+    0%, 100% { transform: scale(1.05); }
+    50% { transform: scale(1.03); }
+}
+
+
+/* secret, tsss...*/
+#name-container {
+    display: grid;
+    place-items: center;
+}
+#distort-text, #hidden-text {
+    grid-area: 1 / 1;
+    white-space: nowrap;
+}
+
+.is-glitching {
+    animation: glitch-shake 0.4s ease-in-out, chromatic-aberration 0.4s ease-in-out;
+    animation-iteration-count: 2; 
+}
+
+.is-glitching {
+    animation: 
+        glitch-shake 0.4s steps(5, end) infinite,
+        glitch-clip 0.4s steps(3, end) infinite;
+}
+
+@keyframes glitch-shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-3px, 3px); }
+    50% { transform: translate(3px, -2px); }
+    75% { transform: translate(-2px, -3px); }
+    100% { transform: translate(2px, 2px); }
+}
+
+@keyframes glitch-clip {
+    0% { clip-path: inset(5% 0 85% 0); }
+    20% { clip-path: inset(90% 0 2% 0); }
+    40% { clip-path: inset(45% 0 45% 0); }
+    60% { clip-path: inset(10% 0 5% 0); }
+    80% { clip-path: inset(70% 0 10% 0); }
+    100% { clip-path: none; }
 }
