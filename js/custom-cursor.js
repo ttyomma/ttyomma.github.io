@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (isTouchDevice) {return;}
     document.body.classList.add('no-touch');
-
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
-
     const outlineSpeed = 0.09;
     let mouseX = 0;
     let mouseY = 0;

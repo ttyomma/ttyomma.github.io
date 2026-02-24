@@ -3,12 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const settingsPanel = document.getElementById('settings-panel');
   const settingsCard = document.getElementById('settings-card');
   const settingsClose = document.getElementById('settings-close');
-  
   const animationToggle = document.getElementById('animation-toggle');
   const p5Canvas = document.getElementById('p5-canvas');
-
   const uiAnimationToggle = document.getElementById('ui-animation-toggle');
-  
   const setUiAnimations = (enabled) => {
     if (enabled) {
       document.body.classList.remove('animations-disabled');
