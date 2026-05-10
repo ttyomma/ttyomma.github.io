@@ -20,8 +20,9 @@
     <link rel="stylesheet" href="style.css">
     <title>My Portfolio</title>
     <script src="js/theme-loader.js"></script>
+    <script src="js/tilt-effect.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js" defer></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -42,10 +43,9 @@
     </script>
 </head>
 
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
 <body class="dark:text-dark-text text-black font-sans min-h-screen flex flex-col">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
     <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
     <div class="vignette-overlay fixed inset-0 z-0"></div>
@@ -123,12 +123,72 @@
         </div>
     </nav>
 
-<main class="mx-auto px-4 py-24 pb-48 flex-grow">
-    <h1 style="user-select: none;">More university project work can be found on my <a href="https://github.com/ttyomma" class="text-gradient">GitHub</a> </h1>
+<main class="projects-page relative z-10 container mx-auto px-4 py-24 pb-48 flex-grow">
+    <section class="mx-auto max-w-6xl text-left">
+        <div class="mb-10 text-center sm:text-left">
+            <p class="text-sm uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 select-none">Portfolio</p>
+            <h1 class="mt-3 text-3xl sm:text-4xl font-black content-glow select-none">Projects</h1>
+            <p class="mx-auto sm:mx-0 mt-3 max-w-2xl text-base text-gray-600 dark:text-gray-300">
+                More university project work can be found on my
+                <a href="https://github.com/ttyomma" target="_blank" rel="noopener noreferrer" class="project-inline-link">GitHub</a>.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            <article class="project-item">
+                <a href="https://github.com/ttyomma/TaskManager-Asm-Py"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="project-card tilt-card grainy"
+                   data-cursor-hover
+                   aria-label="Open TaskManager Asm Py project on GitHub">
+                    <div class="project-preview" aria-hidden="true">
+                        <div class="project-preview-bar">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="project-preview-body">
+                            <span class="code-line w-3/4"></span>
+                            <span class="code-line w-1/2"></span>
+                            <span class="code-line w-5/6"></span>
+                            <span class="code-line w-2/3"></span>
+                        </div>
+                    </div>
+
+                    <div class="project-poster-footer">
+                        <div>
+                            <p class="project-kicker">MASM x86 + Python</p>
+                            <h2>TaskManager-Asm-Py</h2>
+                        </div>
+                        <svg class="project-link-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                        </svg>
+                    </div>
+
+                    <div class="tilt-shine"></div>
+                </a>
+
+                <aside class="project-side-panel">
+                    <p class="project-panel-label">Project overview</p>
+                    <p class="project-description">
+                        Task manager built around an x86 MASM core with a Python wrapper for interaction and workflow control.
+                    </p>
+
+                    <div class="project-tags" aria-label="Project technologies">
+                        <span>MASM</span>
+                        <span>x86</span>
+                        <span>Python</span>
+                        <span>Task Manager</span>
+                    </div>
+                </aside>
+            </article>
+        </div>
+    </section>
 </main>
 
     <footer class="w-full text-center text-sm select-none pb-12">
-        <img class="inline w-62 h-16 op content-glow" src="images/crystalwatermark1.png" alt="CrystalShade watermark">
+        <img class="site-watermark inline content-glow" src="images/crystalwatermark1-small.png" width="450" height="100" loading="lazy" decoding="async" alt="CrystalShade watermark">
         <p class="opacity-50 content-glow">
             Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a>
         </p>
@@ -136,7 +196,6 @@
     </footer>
 
 <script src="js/theme-switcher.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="js/topography-sketch.js"></script>
 <script src="js/settings.js"></script>
 <script src="js/custom-cursor.js"></script>

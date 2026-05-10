@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="style.css">
     <title>My Portfolio</title>
     <script src="js/theme-loader.js"></script>
-    <script src="js/tilt-effect.js"></script>
-    <script src="js/resume-animations.js"></script>
+    <script src="js/tilt-effect.js" defer></script>
+    <script src="js/resume-animations.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js" defer></script>
     <script>
         tailwind.config = {
         darkMode: 'class',
@@ -71,10 +71,9 @@
     </script>
 </head>
 
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
 <body class="dark:text-dark-text text-black font-sans min-h-screen flex flex-col">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
     <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
     <div class="vignette-overlay fixed inset-0 z-0"></div>
@@ -487,7 +486,7 @@
 </main>
 
   <footer class="w-full text-center text-sm select-none pb-12">
-    <img class="inline w-62 h-16 op content-glow" src="images/crystalwatermark1.png" alt="CrystalShade watermark">
+    <img class="site-watermark inline content-glow" src="images/crystalwatermark1-small.png" width="450" height="100" loading="lazy" decoding="async" alt="CrystalShade watermark">
     <p class="opacity-50 content-glow">
       Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a>
     </p>
@@ -495,7 +494,6 @@
   </footer>
 
 <script src="js/theme-switcher.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="js/topography-sketch.js"></script>
 <script src="js/settings.js"></script>
 <script src="js/custom-cursor.js"></script>

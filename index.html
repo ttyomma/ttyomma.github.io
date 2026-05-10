@@ -18,11 +18,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="siteicon.ico" type="image/x-icon">
     <script src="js/theme-loader.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>My Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js" defer></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -43,12 +42,11 @@
     </script>
 </head>
 
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-
 <body class="dark:text-dark-text text-black font-sans overflow-x-hidden min-h-screen flex flex-col">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     <div class="fixed inset-0 z-[-2] dark:bg-dark-bg bg-white"></div>
-    <div id="p5-canvas" class="fixed inset-0 z-10"></div>
+    <div id="p5-canvas" class="fixed inset-0 z-[-1]"></div>
     <div class="vignette-overlay fixed inset-0 z-0"></div>
 
     <nav class="fixed top-0 left-0 w-full px-2 md:px-4 py-2 md:py-4 z-50">
@@ -126,7 +124,7 @@
 
     <div class="relative z-10 flex flex-col items-center justify-center min-h-[80vh] pt-24 px-4 sm:px-8">
         <div id="pfp-container" class="w-40 h-40 sm:w-55 sm:h-55 rounded-full relative z-30 cursor-pointer select-none">
-            <img id="pfp-main" class="w-full h-full object-cover rounded-full content-glow transition-opacity duration-300" src="images/pfp.jpg" alt="avatar">
+            <img id="pfp-main" class="w-full h-full object-cover rounded-full content-glow transition-opacity duration-300" src="images/pfp.jpg" width="736" height="736" decoding="async" fetchpriority="high" alt="avatar">
         </div>
 
         <div id="name-container" class="relative p-5">
@@ -183,7 +181,7 @@
 </div>
 
     <footer class="w-full text-center text-sm select-none pb-12">
-        <img class="inline w-62 h-16 op content-glow" src="images/crystalwatermark1.png" alt="CrystalShade watermark">
+        <img class="site-watermark inline content-glow" src="images/crystalwatermark1-small.png" width="450" height="100" loading="lazy" decoding="async" alt="CrystalShade watermark">
         <p class="opacity-50 content-glow">
             Artem | <a href="mailto:artemkolisnychenko@proton.me">artemkolisnychenko@proton.me</a>
         </p>

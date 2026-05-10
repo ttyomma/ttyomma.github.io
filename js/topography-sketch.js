@@ -13,10 +13,10 @@ let stopAnimationAfter = 2;
 let fadeDuration = 2;
 
 // --- Settings for devices ---
-let particleCount_Desktop = 800;
-let particleCount_Mobile = 200;
-let strokeAlpha_Desktop = 20;
-let strokeAlpha_Mobile = 25;
+let particleCount_Desktop = 420;
+let particleCount_Mobile = 120;
+let strokeAlpha_Desktop = 18;
+let strokeAlpha_Mobile = 22;
 
 let particleCount;
 let strokeAlpha;
@@ -25,9 +25,11 @@ let zoff = 0;
 let animationState = 'running';
 let startTime;
 let lastKnownThemeIsDark = null;
+let resizeTimer = null;
 
 
 function setup() {
+  pixelDensity(1);
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('p5-canvas');
   
@@ -38,16 +40,25 @@ function setup() {
   } else {
     particleCount = particleCount_Desktop;
     strokeAlpha = strokeAlpha_Desktop;
-    frameRate(60);
+    frameRate(45);
   }
 
   window.addEventListener('themeChanged', (event) => {
+    if (localStorage.getItem('animationEnabled') === 'false') return;
     loop();
     clear();
     background(event.detail.theme === 'dark' ? 0 : 255);
     lastKnownThemeIsDark = event.detail.theme === 'dark';
     startAnimation();
   });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion || localStorage.getItem('animationEnabled') === 'false') {
+    const currentThemeIsDark = document.documentElement.classList.contains('dark');
+    background(currentThemeIsDark ? 0 : 255);
+    noLoop();
+    return;
+  }
 
   startAnimation();
 }
@@ -118,7 +129,10 @@ function startAnimation() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  loop();
-  startAnimation();
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    resizeCanvas(windowWidth, windowHeight);
+    loop();
+    startAnimation();
+  }, 150);
 }
